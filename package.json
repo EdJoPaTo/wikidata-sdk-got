@@ -28,7 +28,9 @@
 		"sparql"
 	],
 	"dependencies": {
-		"got": "^9.6.0",
+		"got": "^9.6.0"
+	},
+	"peerDependencies": {
 		"wikidata-sdk": "^6.0.0"
 	},
 	"devDependencies": {
