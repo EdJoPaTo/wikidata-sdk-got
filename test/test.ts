@@ -3,10 +3,10 @@ import test from 'ava';
 import {
 	getEntities,
 	getEntitiesSimplified,
-	sparqlQuerySimplifiedMinified,
 	searchEntities,
 	sparqlQuery,
-	sparqlQuerySimplified
+	sparqlQuerySimplified,
+	sparqlQuerySimplifiedMinified
 } from '../source';
 
 test('readme example', async t => {
