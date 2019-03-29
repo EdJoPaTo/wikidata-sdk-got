@@ -1,7 +1,7 @@
 {
 	"name": "wikidata-sdk-got",
 	"version": "0.0.0",
-	"description": "Directly run Wikidata SparQL Queries",
+	"description": "Run wikidata-sdk requests from NodeJS without handling urls",
 	"license": "MIT",
 	"repository": "EdJoPaTo/wikidata-sdk-got",
 	"author": {

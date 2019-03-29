@@ -7,7 +7,7 @@
 [![Peer Dependency Status](https://david-dm.org/EdJoPaTo/wikidata-sdk-got/peer-status.svg)](https://david-dm.org/EdJoPaTo/wikidata-sdk-got?type=peer)
 [![Dev Dependency Status](https://david-dm.org/EdJoPaTo/wikidata-sdk-got/dev-status.svg)](https://david-dm.org/EdJoPaTo/wikidata-sdk-got?type=dev)
 
-> Run wikidata-sdk requests without handling urls
+> Run wikidata-sdk requests from NodeJS without handling urls
 
 When working with Wikidata you can use [maxlath/wikidata-sdk](https://github.com/maxlath/wikidata-sdk).
 In order to keep small wikidata-sdk does not do requests on its own.
