@@ -1,6 +1,6 @@
 {
 	"name": "wikidata-sdk-got",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Run wikidata-sdk requests from NodeJS without handling urls",
 	"license": "MIT",
 	"repository": "EdJoPaTo/wikidata-sdk-got",
