@@ -22,9 +22,29 @@ export async function getEntities(options: {format: 'xml'} & wdk.GetEntitiesOpti
 export async function getEntities(options: {format?: 'json'} & wdk.GetEntitiesOptions, gotOptions?: any): Promise<{entities: Dictionary<wdk.Entity>}>;
 
 export async function getEntities(options: wdk.GetEntitiesOptions, gotOptions: any = {}): Promise<string | {entities: Dictionary<wdk.Entity>}> {
-	// TODO: use getManyEntities internally
+	if (!options.format || options.format === 'json') {
+		const urls = wdk.getManyEntities(options);
+		const responseArr = await Promise.all(
+			urls.map(o => got(o, {...gotOptions, json: true}))
+		);
+
+		const entityDictArr: ReadonlyArray<Dictionary<wdk.Entity>> = responseArr
+			.map(o => o.body.entities);
+
+		const entities: Dictionary<wdk.Entity> = entityDictArr
+			.reduce((coll: Dictionary<wdk.Entity>, add) => {
+				const keys = Object.keys(add);
+				for (const key of keys) {
+					coll[key] = add[key];
+				}
+
+				return coll;
+			}, {});
+
+		return {entities};
+	}
+
 	const url = wdk.getEntities(options);
-	gotOptions.json = !options.format || options.format === 'json';
 	const {body} = await got(url, gotOptions);
 	return body;
 }

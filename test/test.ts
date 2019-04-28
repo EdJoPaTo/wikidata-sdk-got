@@ -102,6 +102,24 @@ test('entities simplified', async t => {
 	t.truthy(entities.Q42.labels.en);
 });
 
+test('more than 50 entities', async t => {
+	const ids: string[] = [];
+	for (let i = 1; i < 60; i++) {
+		ids.push(`Q${i}`);
+	}
+
+	t.log(ids.length, ids);
+
+	const entities = await getEntitiesSimplified({
+		ids,
+		languages: 'en',
+		props: 'labels'
+	});
+
+	t.log(entities);
+	t.is(Object.keys(entities).length, 59);
+});
+
 test('sparql', async t => {
 	const result = await sparqlQuery(EXAMPLE_QUERY);
 	t.log(result);
