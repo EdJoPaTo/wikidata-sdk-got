@@ -61,7 +61,7 @@ export async function sparqlQuery(query: string, gotOptions: any = {}): Promise<
 	return body;
 }
 
-export async function sparqlQuerySimplified(query: string, gotOptions: any = {}): Promise<{[key: string]: wdk.SparqlValueType}[]> {
+export async function sparqlQuerySimplified(query: string, gotOptions: any = {}): Promise<ReadonlyArray<Dictionary<wdk.SparqlValueType>>> {
 	const results = await sparqlQuery(query, gotOptions);
 	const simplified = wdk.simplify.sparqlResults(results);
 	return simplified;
