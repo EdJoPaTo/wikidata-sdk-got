@@ -28,6 +28,7 @@
 		"sparql"
 	],
 	"dependencies": {
+		"array-filter-unique": "^2.1.0",
 		"got": "^9.6.0"
 	},
 	"peerDependencies": {

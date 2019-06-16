@@ -1,4 +1,5 @@
 import * as wdk from 'wikidata-sdk';
+import arrayFilterUnique from 'array-filter-unique';
 
 /* eslint @typescript-eslint/no-require-imports: "warn" */
 /* eslint @typescript-eslint/no-var-requires: "warn" */
@@ -23,7 +24,15 @@ export async function getEntities(options: {format?: 'json'} & wdk.GetEntitiesOp
 
 export async function getEntities(options: wdk.GetEntitiesOptions, gotOptions: any = {}): Promise<string | {entities: Dictionary<wdk.Entity>}> {
 	if (!options.format || options.format === 'json') {
-		const urls = wdk.getManyEntities(options);
+		const allIds = Array.isArray(options.ids) ? options.ids : [options.ids];
+		const ids = allIds.filter(arrayFilterUnique());
+
+		const saneOptions = {
+			...options,
+			ids
+		};
+
+		const urls = wdk.getManyEntities(saneOptions);
 		const responseArr = await Promise.all(
 			urls.map(o => got(o, {...gotOptions, json: true}))
 		);
