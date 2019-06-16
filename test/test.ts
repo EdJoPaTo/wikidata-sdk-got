@@ -15,12 +15,14 @@ test('readme example', async t => {
 	SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
 } LIMIT 3`);
 	t.log(result);
-	t.deepEqual(result[0], {
-		item: {
-			label: 'George Washington',
-			value: 'Q23'
-		}
-	});
+
+	t.is(result.length, 3);
+	t.truthy(result[0]);
+
+	const item = result[0].item as any;
+	t.truthy(item);
+	t.truthy(item.label);
+	t.truthy(item.value);
 });
 
 const EXAMPLE_QUERY = `SELECT ?item ?itemLabel ?lifeExpectancy ?officialName ?whatever
