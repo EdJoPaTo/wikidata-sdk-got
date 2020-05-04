@@ -28,16 +28,16 @@ $ npm install wikidata-sdk wikidata-sdk-got
 ```js
 const wdkGot = require('wikidata-sdk-got');
 
-await wdkGot.sparqlQuerySimplifiedMinified('SELECT * WHERE { ?item wdt:P31 wd:Q5. } LIMIT 3');
-//=> ['Q23', 'Q42', 'Q76']
+await wdkGot.sparqlQuerySimplifiedMinified('SELECT * WHERE { ?item wdt:P50 wd:Q42. } LIMIT 3');
+//=> ['Q721', 'Q25169', 'Q187655']
 ```
 
 
 ```ts
 import * as wdkGot from 'wikidata-sdk-got';
 
-await wdkGot.sparqlQuerySimplifiedMinified('SELECT * WHERE { ?item wdt:P31 wd:Q5. } LIMIT 3');
-//=> ['Q23', 'Q42', 'Q76']
+await wdkGot.sparqlQuerySimplifiedMinified('SELECT * WHERE { ?item wdt:P50 wd:Q42. } LIMIT 3');
+//=> ['Q721', 'Q25169', 'Q187655']
 ```
 
 ## API

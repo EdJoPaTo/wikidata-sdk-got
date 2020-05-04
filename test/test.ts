@@ -11,7 +11,7 @@ import {
 
 test('readme example', async t => {
 	const result = await sparqlQuerySimplified(`SELECT ?item ?itemLabel WHERE {
-	?item wdt:P31 wd:Q5.
+	?item wdt:P50 wd:Q42.
 	SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
 } LIMIT 3`);
 	t.log(result);
@@ -33,8 +33,9 @@ WHERE {
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
 }`;
 
-test('search', async t => {
-	const {search} = await searchEntities({
+/* eslint ava/no-skip-test: warn */
+test.skip('search', async t => {
+	const search = await searchEntities({
 		search: 'Q7796408',
 		language: 'de'
 	});
@@ -44,19 +45,8 @@ test('search', async t => {
 	t.is(result.id, 'Q7796408');
 });
 
-test('search xml', async t => {
-	const search = await searchEntities({
-		search: 'Q7796408',
-		language: 'de',
-		format: 'xml'
-	});
-	t.log(search);
-	t.is(typeof search, 'string');
-	t.truthy(search);
-});
-
 test('entities', async t => {
-	const {entities} = await getEntities({
+	const entities = await getEntities({
 		ids: ['Q42', 'P31'],
 		languages: 'en',
 		props: 'labels'
@@ -72,18 +62,6 @@ test('entities', async t => {
 	t.log(entities.Q42.labels.en);
 	t.is(entities.Q42.labels.en.language, 'en');
 	t.truthy(entities.Q42.labels.en.value);
-});
-
-test('entities xml', async t => {
-	const entities = await getEntities({
-		ids: ['Q42', 'P31'],
-		languages: 'en',
-		props: 'labels',
-		format: 'xml'
-	});
-	t.log(entities);
-	t.is(typeof entities, 'string');
-	t.truthy(entities);
 });
 
 test('entities simplified', async t => {
@@ -150,5 +128,8 @@ test('sparql simplified minimized', async t => {
 });
 
 test('sparql simplified minimized fails with not minimizable', async t => {
-	await t.throwsAsync(() => sparqlQuerySimplifiedMinified(EXAMPLE_QUERY), 'Can not minify query. Use sparqlQuerySimplified instead!');
+	await t.throwsAsync(
+		async () => sparqlQuerySimplifiedMinified(EXAMPLE_QUERY),
+		{message: 'Can not minify query. Use sparqlQuerySimplified instead!'}
+	);
 });
