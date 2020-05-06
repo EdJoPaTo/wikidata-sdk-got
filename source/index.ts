@@ -65,7 +65,3 @@ export async function sparqlQuerySimplifiedMinified(query: string, gotOptions: G
 
 	return simplified;
 }
-
-// For CommonJS default export support
-module.exports = exports;
-module.exports.default = exports;
