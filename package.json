@@ -30,7 +30,8 @@
 	"dependencies": {
 		"array-filter-unique": "^2.1.0",
 		"got": "^11.1.0",
-		"wikidata-sdk": "^6.1.0"
+		"wikibase-types": "^0.1.0",
+		"wikidata-sdk": "^7.4.1"
 	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^0.7.0",

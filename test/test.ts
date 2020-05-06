@@ -33,8 +33,7 @@ WHERE {
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
 }`;
 
-/* eslint ava/no-skip-test: warn */
-test.skip('search', async t => {
+test('search', async t => {
 	const search = await searchEntities({
 		search: 'Q7796408',
 		language: 'de'
