@@ -27,9 +27,9 @@ export interface EntitySimplified {
 	// Info
 	readonly modified?: string;
 
-	readonly aliases?: Record<string, readonly string[]>;
-	readonly claims?: Record<string, readonly ClaimSimplified[]>;
-	readonly descriptions?: Record<string, string>;
-	readonly labels?: Record<string, string>;
-	readonly sitelinks?: Record<string, string>;
+	readonly aliases?: Readonly<Record<string, readonly string[]>>;
+	readonly claims?: Readonly<Record<string, readonly ClaimSimplified[]>>;
+	readonly descriptions?: Readonly<Record<string, string>>;
+	readonly labels?: Readonly<Record<string, string>>;
+	readonly sitelinks?: Readonly<Record<string, string>>;
 }
