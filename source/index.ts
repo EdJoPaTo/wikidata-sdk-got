@@ -28,10 +28,11 @@ export async function getEntities(options: GetEntitiesOptions, gotOptions?: GotO
 		urls.map(async o => got(o, gotOptions).json())
 	);
 
-	const entityDictionaryArray: ReadonlyArray<Record<string, Entity>> = responseArray
-		.map((o: any) => o.entities);
+	const entityDictionaryArray = responseArray
+		.map((o: any) => o.entities as Readonly<Record<string, Entity>>);
 
 	const entities: Record<string, Entity> = entityDictionaryArray
+		// eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
 		.reduce((coll: Record<string, Entity>, add) => {
 			const keys = Object.keys(add);
 			for (const key of keys) {
@@ -44,24 +45,24 @@ export async function getEntities(options: GetEntitiesOptions, gotOptions?: GotO
 	return entities;
 }
 
-export async function getEntitiesSimplified(options: GetEntitiesOptions, gotOptions: GotOptions = {}): Promise<Record<string, EntitySimplified>> {
+export async function getEntitiesSimplified(options: GetEntitiesOptions, gotOptions: Readonly<GotOptions> = {}): Promise<Record<string, EntitySimplified>> {
 	const entities = await getEntities(options, gotOptions);
 	return wdk.simplify.entities(entities);
 }
 
-export async function sparqlQuery(query: string, gotOptions: GotOptions = {}): Promise<SparqlResults> {
+export async function sparqlQuery(query: string, gotOptions: Readonly<GotOptions> = {}): Promise<SparqlResults> {
 	const url = wdk.sparqlQuery(query);
 	const body: any = await got(url, gotOptions).json();
 	return body;
 }
 
-export async function sparqlQuerySimplified(query: string, gotOptions: GotOptions = {}): Promise<ReadonlyArray<Record<string, SparqlValueType>>> {
+export async function sparqlQuerySimplified(query: string, gotOptions: Readonly<GotOptions> = {}): Promise<ReadonlyArray<Record<string, SparqlValueType>>> {
 	const results = await sparqlQuery(query, gotOptions);
 	const simplified = wdk.simplify.sparqlResults(results);
 	return simplified;
 }
 
-export async function sparqlQuerySimplifiedMinified(query: string, gotOptions: GotOptions = {}): Promise<readonly SparqlValueType[]> {
+export async function sparqlQuerySimplifiedMinified(query: string, gotOptions: Readonly<GotOptions> = {}): Promise<readonly SparqlValueType[]> {
 	const results = await sparqlQuery(query, gotOptions);
 	const simplified = wdk.simplify.sparqlResults(results, {minimize: true});
 	if (typeof simplified[0] === 'object') {

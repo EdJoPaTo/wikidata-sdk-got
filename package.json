@@ -60,7 +60,6 @@
 	},
 	"xo": {
 		"rules": {
-			"@typescript-eslint/prefer-readonly-parameter-types": "off",
 			"ava/no-ignored-test-files": "off",
 			"unicorn/no-fn-reference-in-iterator": "off"
 		}
