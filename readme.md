@@ -99,8 +99,3 @@ Type: `Object`
 See [sindresorhus/got](https://github.com/sindresorhus/got#options) for this one.
 
 Consider [Caching](https://github.com/sindresorhus/got#cache).
-
-
-## License
-
-MIT © [Edgar Toll](https://edjopato.de)
