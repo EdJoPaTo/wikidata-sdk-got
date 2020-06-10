@@ -39,7 +39,7 @@
 		"del-cli": "^3.0.0",
 		"nyc": "^15.0.1",
 		"typescript": "^3.3.4000",
-		"xo": "^0.30.0"
+		"xo": "^0.32.0"
 	},
 	"nyc": {
 		"extension": [
@@ -60,6 +60,7 @@
 	},
 	"xo": {
 		"rules": {
+			"@typescript-eslint/prefer-readonly-parameter-types": "error",
 			"ava/no-ignored-test-files": "off",
 			"unicorn/no-fn-reference-in-iterator": "off"
 		}

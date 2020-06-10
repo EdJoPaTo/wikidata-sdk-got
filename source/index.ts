@@ -31,16 +31,13 @@ export async function getEntities(options: GetEntitiesOptions, gotOptions?: GotO
 	const entityDictionaryArray = responseArray
 		.map((o: any) => o.entities as Readonly<Record<string, Entity>>);
 
-	const entities: Record<string, Entity> = entityDictionaryArray
-		// eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
-		.reduce((coll: Record<string, Entity>, add) => {
-			const keys = Object.keys(add);
-			for (const key of keys) {
-				coll[key] = add[key];
-			}
-
-			return coll;
-		}, {});
+	const entities: Record<string, Entity> = {};
+	for (const entry of entityDictionaryArray) {
+		const keys = Object.keys(entry);
+		for (const key of keys) {
+			entities[key] = entry[key];
+		}
+	}
 
 	return entities;
 }
