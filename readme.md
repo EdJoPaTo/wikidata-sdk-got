@@ -2,7 +2,6 @@
 
 [![NPM Version](https://img.shields.io/npm/v/wikidata-sdk-got.svg)](https://www.npmjs.com/package/wikidata-sdk-got)
 [![node](https://img.shields.io/node/v/wikidata-sdk-got.svg)](https://www.npmjs.com/package/wikidata-sdk-got)
-[![Build Status](https://travis-ci.com/EdJoPaTo/wikidata-sdk-got.svg?branch=master)](https://travis-ci.com/EdJoPaTo/wikidata-sdk-got)
 [![Dependency Status](https://david-dm.org/EdJoPaTo/wikidata-sdk-got/status.svg)](https://david-dm.org/EdJoPaTo/wikidata-sdk-got)
 [![Peer Dependency Status](https://david-dm.org/EdJoPaTo/wikidata-sdk-got/peer-status.svg)](https://david-dm.org/EdJoPaTo/wikidata-sdk-got?type=peer)
 [![Dev Dependency Status](https://david-dm.org/EdJoPaTo/wikidata-sdk-got/dev-status.svg)](https://david-dm.org/EdJoPaTo/wikidata-sdk-got?type=dev)
