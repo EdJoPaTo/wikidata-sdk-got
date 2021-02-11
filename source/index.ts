@@ -33,9 +33,8 @@ export async function getEntities(options: GetEntitiesOptions, gotOptions?: GotO
 
 	const entities: Record<string, Entity> = {};
 	for (const entry of entityDictionaryArray) {
-		const keys = Object.keys(entry);
-		for (const key of keys) {
-			entities[key] = entry[key];
+		for (const [key, value] of Object.entries(entry)) {
+			entities[key] = value;
 		}
 	}
 

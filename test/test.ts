@@ -21,7 +21,7 @@ test('readme example', async t => {
 	t.is(result.length, 3);
 	t.truthy(result[0]);
 
-	const item = result[0].item as any;
+	const item = result[0]!.item as any;
 	t.truthy(item);
 	t.truthy(item.label);
 	t.truthy(item.value);
@@ -42,7 +42,7 @@ test('search', async t => {
 	});
 	t.log(search);
 	t.is(search.length, 1);
-	const result = search[0];
+	const result = search[0]!;
 	t.is(result.id, 'Q7796408');
 });
 
@@ -55,14 +55,14 @@ test('entities', async t => {
 	t.log(entities.P31);
 	t.log(entities.Q42);
 
-	if (!entities.Q42.labels) {
+	if (!entities.Q42?.labels) {
 		t.fail('labels missing');
 		return;
 	}
 
 	t.log(entities.Q42.labels.en);
-	t.is(entities.Q42.labels.en.language, 'en');
-	t.truthy(entities.Q42.labels.en.value);
+	t.is(entities.Q42.labels.en?.language, 'en');
+	t.truthy(entities.Q42.labels.en?.value);
 });
 
 test('entities simplified', async t => {
@@ -74,7 +74,7 @@ test('entities simplified', async t => {
 	t.log(entities.P31);
 	t.log(entities.Q42);
 
-	if (!entities.Q42.labels) {
+	if (!entities.Q42?.labels) {
 		t.fail('labels missing');
 		return;
 	}
@@ -112,7 +112,8 @@ test('sparql simplified', async t => {
 	const results = await sparqlQuerySimplified(EXAMPLE_QUERY);
 	t.log(results);
 	t.true(Array.isArray(results));
-	const entry = results[0];
+	t.is(results.length, 1);
+	const entry = results[0]!;
 	t.deepEqual(entry.item, {
 		label: 'Germany',
 		value: 'Q183'
