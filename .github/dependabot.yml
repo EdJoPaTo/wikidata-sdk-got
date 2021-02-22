@@ -9,3 +9,10 @@ updates:
       interval: "monthly"
     commit-message:
       prefix: "chore(npm):"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "chore(actions):"
