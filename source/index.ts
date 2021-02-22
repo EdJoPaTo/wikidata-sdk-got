@@ -4,6 +4,8 @@ import got, {OptionsOfTextResponseBody as GotOptions} from 'got';
 
 import {SearchEntitiesOptions, GetEntitiesOptions, EntitySimplified} from './wikibase-sdk-types';
 
+export * from './wikibase-sdk-types';
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const wdk = require('wikidata-sdk');
 
