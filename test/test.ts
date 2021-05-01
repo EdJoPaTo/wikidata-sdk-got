@@ -19,7 +19,7 @@ test('readme example', async t => {
 	t.is(result.length, 3);
 	t.truthy(result[0]);
 
-	const item = result[0]?.item as any;
+	const item = result[0]?.['item'] as any;
 	t.truthy(item);
 	t.truthy(item.label);
 	t.truthy(item.value);
@@ -50,17 +50,17 @@ test('entities', async t => {
 		languages: 'en',
 		props: 'labels'
 	});
-	t.log(entities.P31);
-	t.log(entities.Q42);
+	t.log(entities['P31']);
+	t.log(entities['Q42']);
 
-	if (!entities.Q42?.labels) {
+	if (!entities['Q42']?.labels) {
 		t.fail('labels missing');
 		return;
 	}
 
-	t.log(entities.Q42.labels.en);
-	t.is(entities.Q42.labels.en?.language, 'en');
-	t.truthy(entities.Q42.labels.en?.value);
+	t.log(entities['Q42'].labels['en']);
+	t.is(entities['Q42'].labels['en']?.language, 'en');
+	t.truthy(entities['Q42'].labels['en']?.value);
 });
 
 test('entities simplified', async t => {
@@ -69,16 +69,16 @@ test('entities simplified', async t => {
 		languages: 'en',
 		props: 'labels'
 	});
-	t.log(entities.P31);
-	t.log(entities.Q42);
+	t.log(entities['P31']);
+	t.log(entities['Q42']);
 
-	if (!entities.Q42?.labels) {
+	if (!entities['Q42']?.labels) {
 		t.fail('labels missing');
 		return;
 	}
 
-	t.log(entities.Q42.labels.en);
-	t.truthy(entities.Q42.labels.en);
+	t.log(entities['Q42'].labels['en']);
+	t.truthy(entities['Q42'].labels['en']);
 });
 
 test('more than 50 entities', async t => {
@@ -113,13 +113,13 @@ test('sparql simplified', async t => {
 	t.is(results.length, 1);
 	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	const entry = results[0]!;
-	t.deepEqual(entry.item, {
+	t.deepEqual(entry['item'], {
 		label: 'Germany',
 		value: 'Q183'
 	});
-	t.is(typeof entry.lifeExpectancy, 'number');
-	t.is(typeof entry.officialName, 'string');
-	t.is(entry.whatever, undefined);
+	t.is(typeof entry['lifeExpectancy'], 'number');
+	t.is(typeof entry['officialName'], 'string');
+	t.is(entry['whatever'], undefined);
 });
 
 test('sparql simplified minimized', async t => {

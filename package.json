@@ -61,6 +61,7 @@
 					"test/**/*.*"
 				],
 				"rules": {
+					"@typescript-eslint/dot-notation": "off",
 					"@typescript-eslint/prefer-readonly-parameter-types": "off"
 				}
 			}
