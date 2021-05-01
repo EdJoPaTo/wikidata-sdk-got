@@ -11,6 +11,7 @@ const wdk = require('wikidata-sdk');
 
 export async function searchEntities(options: SearchEntitiesOptions, gotOptions?: GotOptions): Promise<readonly SearchResult[]> {
 	const url = wdk.searchEntities(options);
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
 	const body: any = await got(url, gotOptions).json();
 	return body.search;
 }
@@ -50,6 +51,7 @@ export async function getEntitiesSimplified(options: GetEntitiesOptions, gotOpti
 
 export async function sparqlQuery(query: string, gotOptions: Readonly<GotOptions> = {}): Promise<SparqlResults> {
 	const url = wdk.sparqlQuery(query);
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
 	const body: any = await got(url, gotOptions).json();
 	return body;
 }

@@ -19,7 +19,7 @@ test('readme example', async t => {
 	t.is(result.length, 3);
 	t.truthy(result[0]);
 
-	const item = result[0]!.item as any;
+	const item = result[0]?.item as any;
 	t.truthy(item);
 	t.truthy(item.label);
 	t.truthy(item.value);
@@ -40,8 +40,8 @@ test('search', async t => {
 	});
 	t.log(search);
 	t.is(search.length, 1);
-	const result = search[0]!;
-	t.is(result.id, 'Q7796408');
+	const result = search[0];
+	t.is(result?.id, 'Q7796408');
 });
 
 test('entities', async t => {
@@ -111,6 +111,7 @@ test('sparql simplified', async t => {
 	t.log(results);
 	t.true(Array.isArray(results));
 	t.is(results.length, 1);
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	const entry = results[0]!;
 	t.deepEqual(entry.item, {
 		label: 'Germany',
