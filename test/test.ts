@@ -6,7 +6,7 @@ import {
 	searchEntities,
 	sparqlQuery,
 	sparqlQuerySimplified,
-	sparqlQuerySimplifiedMinified
+	sparqlQuerySimplifiedMinified,
 } from '../source';
 
 test('readme example', async t => {
@@ -36,7 +36,7 @@ WHERE {
 test('search', async t => {
 	const search = await searchEntities({
 		search: 'Q7796408',
-		language: 'de'
+		language: 'de',
 	});
 	t.log(search);
 	t.is(search.length, 1);
@@ -48,7 +48,7 @@ test('entities', async t => {
 	const entities = await getEntities({
 		ids: ['Q42', 'P31'],
 		languages: 'en',
-		props: 'labels'
+		props: 'labels',
 	});
 	t.log(entities['P31']);
 	t.log(entities['Q42']);
@@ -67,7 +67,7 @@ test('entities simplified', async t => {
 	const entities = await getEntitiesSimplified({
 		ids: ['Q42', 'P31'],
 		languages: 'en',
-		props: 'labels'
+		props: 'labels',
 	});
 	t.log(entities['P31']);
 	t.log(entities['Q42']);
@@ -92,7 +92,7 @@ test('more than 50 entities', async t => {
 	const entities = await getEntitiesSimplified({
 		ids,
 		languages: 'en',
-		props: 'labels'
+		props: 'labels',
 	});
 
 	t.log(entities);
@@ -114,7 +114,7 @@ test('sparql simplified', async t => {
 	const entry = results[0]!;
 	t.deepEqual(entry['item'], {
 		label: 'Germany',
-		value: 'Q183'
+		value: 'Q183',
 	});
 	t.is(typeof entry['lifeExpectancy'], 'number');
 	t.is(typeof entry['officialName'], 'string');
@@ -130,6 +130,6 @@ test('sparql simplified minimized', async t => {
 test('sparql simplified minimized fails with not minimizable', async t => {
 	await t.throwsAsync(
 		async () => sparqlQuerySimplifiedMinified(EXAMPLE_QUERY),
-		{message: 'Can not minify query. Use sparqlQuerySimplified instead!'}
+		{message: 'Can not minify query. Use sparqlQuerySimplified instead!'},
 	);
 });
