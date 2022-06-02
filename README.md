@@ -2,9 +2,6 @@
 
 [![NPM Version](https://img.shields.io/npm/v/wikidata-sdk-got.svg)](https://www.npmjs.com/package/wikidata-sdk-got)
 [![node](https://img.shields.io/node/v/wikidata-sdk-got.svg)](https://www.npmjs.com/package/wikidata-sdk-got)
-[![Dependency Status](https://david-dm.org/EdJoPaTo/wikidata-sdk-got/status.svg)](https://david-dm.org/EdJoPaTo/wikidata-sdk-got)
-[![Peer Dependency Status](https://david-dm.org/EdJoPaTo/wikidata-sdk-got/peer-status.svg)](https://david-dm.org/EdJoPaTo/wikidata-sdk-got?type=peer)
-[![Dev Dependency Status](https://david-dm.org/EdJoPaTo/wikidata-sdk-got/dev-status.svg)](https://david-dm.org/EdJoPaTo/wikidata-sdk-got?type=dev)
 
 > Run wikidata-sdk requests from NodeJS without handling urls
 
@@ -13,29 +10,20 @@ In order to stay small and useable on all platforms wikidata-sdk does not do req
 
 Why not use [sindresorhus/got](https://github.com/sindresorhus/got#options) for it?
 As the code is the same all the time, this can be abstracted as it is done here 😎
-
-
 ## Install
 
+```bash
+npm install wikidata-sdk wikidata-sdk-got
 ```
-$ npm install wikidata-sdk wikidata-sdk-got
-```
-
 
 ## Usage
-
-```js
-const wdkGot = require('wikidata-sdk-got');
-
-await wdkGot.sparqlQuerySimplifiedMinified('SELECT * WHERE { ?item wdt:P50 wd:Q42. } LIMIT 3');
-//=> ['Q721', 'Q25169', 'Q187655']
-```
-
 
 ```ts
 import * as wdkGot from 'wikidata-sdk-got';
 
-await wdkGot.sparqlQuerySimplifiedMinified('SELECT * WHERE { ?item wdt:P50 wd:Q42. } LIMIT 3');
+await wdkGot.sparqlQuerySimplifiedMinified(
+  'SELECT * WHERE { ?item wdt:P50 wd:Q42. } LIMIT 3'
+);
 //=> ['Q721', 'Q25169', 'Q187655']
 ```
 
