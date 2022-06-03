@@ -14,3 +14,7 @@ updates:
     ignore:
       - dependency-name: "got"
         update-types: ["version-update:semver-major"]
+      - dependency-name: "@sindresorhus/tsconfig"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "array-filter-unique"
+        update-types: ["version-update:semver-major"]
