@@ -20,7 +20,7 @@
 	},
 	"type": "commonjs",
 	"engines": {
-		"node": ">=12"
+		"node": ">=14"
 	},
 	"dependencies": {
 		"array-filter-unique": "^2.1.0",
