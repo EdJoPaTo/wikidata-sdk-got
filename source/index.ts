@@ -2,9 +2,9 @@ import {SearchResult, Entity, SparqlResults, SparqlValueType} from 'wikibase-typ
 import arrayFilterUnique from 'array-filter-unique';
 import got, {OptionsOfTextResponseBody as GotOptions} from 'got';
 
-import {SearchEntitiesOptions, GetEntitiesOptions, EntitySimplified} from './wikibase-sdk-types';
+import {SearchEntitiesOptions, GetEntitiesOptions, EntitySimplified} from './wikibase-sdk-types.js';
 
-export * from './wikibase-sdk-types';
+export * from './wikibase-sdk-types.js';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const wdk = require('wikidata-sdk');

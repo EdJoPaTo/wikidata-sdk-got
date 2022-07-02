@@ -7,7 +7,7 @@ import {
 	sparqlQuery,
 	sparqlQuerySimplified,
 	sparqlQuerySimplifiedMinified,
-} from '../source';
+} from '../source/index.js';
 
 test('readme example', async t => {
 	const result = await sparqlQuerySimplified(`SELECT ?item ?itemLabel WHERE {

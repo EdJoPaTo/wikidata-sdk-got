@@ -34,7 +34,7 @@
 		"del-cli": "^4.0.0",
 		"nyc": "^15.0.1",
 		"typescript": "^4.2.3",
-		"xo": "^0.49.0"
+		"xo": "^0.50.0"
 	},
 	"files": [
 		"dist/source",
@@ -58,10 +58,6 @@
 			"@typescript-eslint/no-unsafe-return": "off",
 			"@typescript-eslint/prefer-readonly-parameter-types": "off",
 			"ava/no-ignored-test-files": "off",
-			"import/extensions": [
-				"error",
-				"never"
-			],
 			"unicorn/prefer-module": "off"
 		}
 	}
