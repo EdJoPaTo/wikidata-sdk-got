@@ -3,17 +3,19 @@
 [![NPM Version](https://img.shields.io/npm/v/wikidata-sdk-got.svg)](https://www.npmjs.com/package/wikidata-sdk-got)
 [![node](https://img.shields.io/node/v/wikidata-sdk-got.svg)](https://www.npmjs.com/package/wikidata-sdk-got)
 
-> Run wikidata-sdk requests from NodeJS without handling urls
+> Run `wikidata-sdk` requests from Node.js without handling URLs
 
-When working with Wikidata you can use [maxlath/wikidata-sdk](https://github.com/maxlath/wikidata-sdk).
-In order to stay small and useable on all platforms wikidata-sdk does not do requests on its own.
+The Node.js environment evolved since this library was first released.
+Bot Node.js and `wikidata-sdk` made improvements which ends up making this library obsolete.
+`wikidata-sdk` is now `wikibase-sdk` and features native TypeScript types.
+Also, Node.js 16 and newer offer the [global `fetch()` Method](https://nodejs.org/api/globals.html#fetch) like browsers do to do web requests in a simple manner.
 
-Why not use [sindresorhus/got](https://github.com/sindresorhus/got#options) for it?
-As the code is the same all the time, this can be abstracted as it is done here 😎
+Tldr: Use `wikibase-sdk` with `fetch`.
+
 ## Install
 
 ```bash
-npm install wikidata-sdk wikidata-sdk-got
+npm install wikidata-sdk-got
 ```
 
 ## Usage
